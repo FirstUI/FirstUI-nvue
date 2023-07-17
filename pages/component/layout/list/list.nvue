@@ -7,23 +7,25 @@
 		<view class="fui-page__bd">
 			<text class="fui-section__title fui-mtop--0">基础使用</text>
 			<fui-list>
-				<fui-list-cell>标题文字</fui-list-cell>
 				<fui-list-cell>
-					<text>标题文字</text>
+					<text class="tui-text">标题文字</text>
+				</fui-list-cell>
+				<fui-list-cell>
+					<text class="tui-text">标题文字</text>
 					<text class="fui-text__explain">说明文字</text>
 				</fui-list-cell>
 				<fui-list-cell arrow>
-					<text>标题文字</text>
+					<text class="tui-text">标题文字</text>
 				</fui-list-cell>
 				<fui-list-cell arrow>
 					<view class="fui-list__item">
-						<text>标题文字</text>
+						<text class="tui-text">标题文字</text>
 						<text class="fui-text__explain">说明文字</text>
 					</view>
 				</fui-list-cell>
 				<fui-list-cell arrow :bottomLeft="0">
 					<view class="fui-list__item">
-						<text>标题文字</text>
+						<text class="tui-text">标题文字</text>
 						<fui-badge value="1" type="danger"></fui-badge>
 					</view>
 				</fui-list-cell>
@@ -38,14 +40,14 @@
 				<view class="fui-align__center">
 					<image class="fui-list__icon" src="/static/images/common/icon_tabbar.png" mode="widthFix">
 					</image>
-					<text>标题文字</text>
+					<text class="tui-text">标题文字</text>
 				</view>
 			</fui-list-cell>
 			<fui-list-cell>
 				<view class="fui-align__center">
 					<image class="fui-list__icon" src="/static/images/common/icon_tabbar.png" mode="widthFix">
 					</image>
-					<text>标题文字</text>
+					<text class="tui-text">标题文字</text>
 				</view>
 				<text class="fui-text__explain">说明文字</text>
 			</fui-list-cell>
@@ -53,7 +55,7 @@
 				<view class="fui-align__center">
 					<image class="fui-list__icon" src="/static/images/common/icon_tabbar.png" mode="widthFix">
 					</image>
-					<text>标题文字</text>
+					<text class="tui-text">标题文字</text>
 				</view>
 			</fui-list-cell>
 			<fui-list-cell arrow :bottomLeft="0">
@@ -61,7 +63,7 @@
 					<view class="fui-align__center">
 						<image class="fui-list__icon" src="/static/images/common/icon_tabbar.png" mode="widthFix">
 						</image>
-						<text>标题文字</text>
+						<text class="tui-text">标题文字</text>
 					</view>
 					<text class="fui-text__explain">说明文字</text>
 				</view>
@@ -72,14 +74,14 @@
 				<view class="fui-align__center">
 					<image class="fui-list__icon" src="/static/images/common/icon_tabbar.png" mode="widthFix">
 					</image>
-					<text>标题文字</text>
+					<text class="tui-text">标题文字</text>
 				</view>
 			</fui-list-cell>
 			<fui-list-cell :bottomLeft="0">
 				<view class="fui-align__center">
 					<image class="fui-list__icon" src="/static/images/common/icon_tabbar.png" mode="widthFix">
 					</image>
-					<text>标题文字</text>
+					<text class="tui-text">标题文字</text>
 				</view>
 			</fui-list-cell>
 			<text class="fui-section__title">改变底部线条右侧偏移距离</text>
@@ -87,14 +89,14 @@
 				<view class="fui-align__center">
 					<image class="fui-list__icon" src="/static/images/common/icon_tabbar.png" mode="widthFix">
 					</image>
-					<text>标题文字</text>
+					<text class="tui-text">标题文字</text>
 				</view>
 			</fui-list-cell>
 			<fui-list-cell :bottomBorder="false">
 				<view class="fui-align__center">
 					<image class="fui-list__icon" src="/static/images/common/icon_tabbar.png" mode="widthFix">
 					</image>
-					<text>标题文字</text>
+					<text class="tui-text">标题文字</text>
 				</view>
 			</fui-list-cell>
 			<text class="fui-section__title">无线条</text>
@@ -102,14 +104,14 @@
 				<view class="fui-align__center">
 					<image class="fui-list__icon" src="/static/images/common/icon_tabbar.png" mode="widthFix">
 					</image>
-					<text>标题文字</text>
+					<text class="tui-text">标题文字</text>
 				</view>
 			</fui-list-cell>
 			<fui-list-cell :bottomBorder="false" arrow>
 				<view class="fui-align__center">
 					<image class="fui-list__icon" src="/static/images/common/icon_tabbar.png" mode="widthFix">
 					</image>
-					<text>标题文字</text>
+					<text class="tui-text">标题文字</text>
 				</view>
 			</fui-list-cell>
 		</view>
