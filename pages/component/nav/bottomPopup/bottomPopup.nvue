@@ -1,0 +1,202 @@
+<template>
+	<view class="fui-wrap">
+		<view class="fui-page__hd">
+			<text class="fui-page__title">BottomPopup</text>
+			<text class="fui-page__desc">BottomPopup 底部弹出层，从底部弹出的浮层，引导用户进行相关操作。</text>
+		</view>
+		<view class="fui-page__bd">
+			<fui-button type="gray" btn-size="medium" text="基础使用" bold :margin="['24rpx']"
+				@click="showPopup(1)"></fui-button>
+			<fui-button type="gray" btn-size="medium" text="案例一" bold @click="showPopup(2)">
+			</fui-button>
+			<fui-button type="gray" btn-size="medium" text="内容可滚动" :margin="['24rpx']" bold
+				@click="showPopup(3)">
+			</fui-button>
+		</view>
+
+		<fui-bottom-popup :show="show" @close="closePopup(1)">
+			<view class="fui-custom__wrap">
+				<text class="fui-text">这是自定义内容区</text>
+			</view>
+		</fui-bottom-popup>
+
+		<!--案例一-->
+		<fui-bottom-popup :show="show2" :maskClosable="false">
+			<view class="fui-popup__container">
+				<text class="fui-title">测试标题一</text>
+				<text class="fui-sub__title">测试标题一的副标题</text>
+				<text class="fui-descr">辅助描述内容，可根据实际需要安排</text>
+				<text class="fui-sub__descr">辅助提示内容，可根据实际需要安排</text>
+				<view class="fui-btn__box">
+					<fui-button type="gray" width="240rpx" height="80rpx" text="辅助操作" :margin="['0','16rpx']">
+					</fui-button>
+					<fui-button width="240rpx" height="80rpx" text="主操作" :margin="['0','16rpx']"></fui-button>
+				</view>
+
+				<view class="fui-icon__close" @tap="closePopup(2)">
+					<fui-icon name="close" :size="48"></fui-icon>
+				</view>
+			</view>
+		</fui-bottom-popup>
+
+		<fui-bottom-popup :show="show3" @close="closePopup(3)">
+			<view class="fui-scroll__wrap">
+				<text class="fui-title fui-title__pb">测试标题二</text>
+				<scroll-view :scroll-y="true" :show-scrollbar="false" class="fui-scroll__view">
+					<view>
+						<fui-list-cell v-for="(item,index) in itemList" :key="index">
+							<text class="fui-text">item{{index+1}}</text>
+						</fui-list-cell>
+					</view>
+				</scroll-view>
+				<view class="fui-icon__close" @tap="closePopup(3)">
+					<fui-icon name="close" :size="48"></fui-icon>
+				</view>
+			</view>
+		</fui-bottom-popup>
+	</view>
+</template>
+
+<script>
+	export default {
+		data() {
+			return {
+				show: false,
+				show2: false,
+				show3: false,
+				itemList: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+			}
+		},
+		methods: {
+			showPopup(type) {
+				if (type === 1) {
+					this.show = true
+				} else if (type === 2) {
+					this.show2 = true
+				} else {
+					this.show3 = true
+				}
+			},
+			closePopup(type) {
+				if (type === 1) {
+					this.show = false
+				} else if (type === 2) {
+					this.show2 = false
+				} else {
+					this.show3 = false
+				}
+			}
+		}
+	}
+</script>
+
+<style>
+	/* #ifndef APP-NVUE */
+	page {
+		font-weight: normal;
+	}
+	/* #endif */
+
+	.fui-page__bd {
+		/* #ifndef APP-NVUE */
+		display: flex;
+		/* #endif */
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+	}
+
+	.fui-custom__wrap {
+		/* #ifndef APP-NVUE */
+		width: 100%;
+		display: flex;
+		/* #endif */
+		/* #ifdef APP-NVUE */
+		width: 750rpx;
+		/* #endif */
+		height: 520rpx;
+		align-items: center;
+		justify-content: center;
+	}
+
+	/* 案例一 start*/
+	.fui-popup__container {
+		/* #ifndef APP-NVUE */
+		width: 100%;
+		display: flex;
+		box-sizing: border-box;
+		/* #endif */
+		/* #ifdef APP-NVUE */
+		width: 750rpx;
+		/* #endif */
+		position: relative;
+		justify-content: center;
+		flex-direction: column;
+		padding: 24rpx 32rpx;
+		
+	}
+
+	.fui-title {
+		font-size: 30rpx;
+		font-weight: bold;
+		text-align: center;
+	}
+
+	.fui-sub__title {
+		/* #ifndef APP-NVUE */
+		display: block;
+		/* #endif */
+		text-align: center;
+		font-size: 24rpx;
+		color: #7F7F7F;
+		transform: scale(.9);
+	}
+
+	.fui-descr {
+		font-weight: bold;
+		padding-top: 64rpx;
+	}
+
+	.fui-sub__descr {
+		font-size: 26rpx;
+		color: #B2B2B2;
+		padding: 32rpx 0;
+	}
+
+	.fui-btn__box {
+		/* #ifndef APP-NVUE */
+		display: flex;
+		box-sizing: border-box;
+		/* #endif */
+		flex-direction: row;
+		justify-content: center;
+		padding: 32rpx 0;
+		height: 144rpx;
+	}
+
+	.fui-icon__close {
+		position: absolute;
+		top: 24rpx;
+		left: 24rpx;
+	}
+
+	/* 案例一 end*/
+	.fui-scroll__wrap {
+		padding-top: 30rpx;
+		position: relative;
+	}
+
+	.fui-scroll__view {
+		/* #ifndef APP-NVUE */
+		width: 100%;
+		/* #endif */
+		/* #ifdef APP-NVUE */
+		width: 750rpx;
+		/* #endif */
+		height: 600rpx;
+	}
+
+	.fui-title__pb {
+		padding-bottom: 24rpx;
+	}
+</style>

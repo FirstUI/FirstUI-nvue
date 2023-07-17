@@ -1,0 +1,69 @@
+<template>
+	<view class="fui-wrap">
+		<view class="fui-page__hd">
+			<text class="fui-page__title">Icon</text>
+			<text class="fui-page__desc">Icon 图标，First UI字体图标库，可自行扩展。</text>
+		</view>
+		<view class="fui-page__bd fui-page__spacing">
+			<fui-grid :columns="3" @click="getName">
+				<fui-grid-item v-for="(item, index) in icons" :highlight="item!=''" :index="index" :key="index">
+					<view class="fui-icon__item">
+						<fui-icon :name="item" :key="index"></fui-icon>
+						<text class="fui-icon__name">{{ item }}</text>
+					</view>
+				</fui-grid-item>
+			</fui-grid>
+		</view>
+	</view>
+</template>
+
+<script>
+	import icons from './icon.js';
+	export default {
+		data() {
+			return {
+				icons: icons
+			}
+		},
+		methods: {
+			getName(e) {
+				const name = this.icons[e.detail.index]
+			}
+		}
+	}
+</script>
+
+<style>
+	/* 头条小程序组件内不能引入字体 */
+	/* #ifdef MP-TOUTIAO */
+	@font-face {
+		font-family: 'fuiFont';
+		src: url("~@/components/firstui/fui-icon/fui-icon.ttf") format("truetype");
+	}
+
+	/* #endif */
+
+	/* #ifndef APP-NVUE */
+	page {
+		background-color: #FFFFFF;
+	}
+
+	/* #endif */
+
+	.fui-icon__item {
+		flex: 1;
+		/* #ifndef APP-NVUE */
+		display: flex;
+		/* #endif */
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+	}
+
+	.fui-icon__name {
+		font-size: 28rpx;
+		font-weight: 400;
+		padding-top: 16rpx;
+	}
+</style>

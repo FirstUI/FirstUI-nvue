@@ -1,7 +1,12 @@
-
 import App from './App'
 import fui from './common/fui-app'
+import fuiConfig from './components/firstui/fui-config'
 import store from './store'
+
+
+//全局组件配置
+uni.$fui = fuiConfig
+uni.fui = fui
 
 // #ifndef VUE3
 import Vue from 'vue'

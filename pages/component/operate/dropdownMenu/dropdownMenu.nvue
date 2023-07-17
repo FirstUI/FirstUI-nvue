@@ -1,0 +1,285 @@
+<template>
+	<view class="fui-wrap">
+		<view class="fui-page__hd">
+			<text class="fui-page__title">DropdownMenu</text>
+			<text class="fui-page__desc">DropdownMenu 下拉菜单，用于弹出一个下拉菜单给用户选择操作。</text>
+		</view>
+		<view class="fui-page__bd">
+			<text class="fui-section__title">选择框位置、样式改变</text>
+			<view class="fui-filter__bar">
+				<view class="fui-flex__1">
+					<fui-dropdown-menu maxHeight="324" :size="28" selectedColor="#465CFF" :options="options"
+						@click="rangeItemClick" @close="rangeClose" ref="ddmRange">
+						<view class="fui-filter__item" @tap="filterTap(1)">
+							<text class="fui-text">{{range}}</text>
+							<view class="fui-filter__icon" :class="{'fui-icon__ani':rangeShow}">
+								<fui-icon name="turningdown" :size="32"></fui-icon>
+							</view>
+						</view>
+					</fui-dropdown-menu>
+				</view>
+				<view class="fui-flex__1">
+					<fui-dropdown-menu maxHeight="324" :minWidth="300" right="0" :size="28" selectedColor="#465CFF"
+						isCheckMark checkmarkColor="#465CFF" isReverse :options="options1" @click="sortItemClick"
+						@close="sortClose" ref="ddmSort">
+						<view class="fui-filter__item" @tap="filterTap(2)">
+							<text class="fui-text">{{sort}}</text>
+							<view class="fui-filter__icon" :class="{'fui-icon__ani':sortShow}">
+								<fui-icon name="turningdown" :size="32"></fui-icon>
+							</view>
+						</view>
+					</fui-dropdown-menu>
+				</view>
+			</view>
+			<text class="fui-section__title">可滚动、改变选择框颜色</text>
+			<fui-list-cell :highlight="false">
+				<view class="fui-list__cell fui-flex__center">
+					<text class="fui-text">问题分类：</text>
+					<view class="fui-flex__1">
+						<fui-dropdown-menu checkboxColor="#FFB703" :minWidth="400" splitLine :options="options2"
+							ref="ddmQues" @click="quesItemClick" @close="quesClose">
+							<view class="fui-select fui-flex__between" @tap="quesTap">
+								<input placeholder="请选择" :value="question" class="fui-input" :disabled="true"
+									@tap="empty" />
+								<view class="fui-filter__icon" :class="{'fui-icon__ani':quesShow}">
+									<fui-icon name="turningdown" :size="32"></fui-icon>
+								</view>
+							</view>
+						</fui-dropdown-menu>
+					</view>
+				</view>
+			</fui-list-cell>
+			<text class="fui-section__title">向上展开、不显示选择框</text>
+			<fui-list-cell :highlight="false">
+				<view class="fui-list__cell fui-flex__center">
+					<text class="fui-text">选择标签：</text>
+					<view class="fui-flex__1">
+						<fui-dropdown-menu :isCheckbox="false" selectedColor="#FF2B2B" splitLine :options="options3"
+							ref="ddmTag" direction="up" @click="tagItemClick" @close="tagClose">
+							<view class="fui-select fui-flex__between" @tap="tagTap">
+								<input placeholder="请选择" :value="tag" class="fui-input" :disabled="true" @tap="empty" />
+								<view class="fui-filter__icon" :class="{'fui-icon__ani':tagShow}">
+									<fui-icon name="turningdown" :size="32"></fui-icon>
+								</view>
+							</view>
+						</fui-dropdown-menu>
+					</view>
+				</view>
+			</fui-list-cell>
+		</view>
+	</view>
+</template>
+
+<script>
+	export default {
+		data() {
+			return {
+				options: [{
+					text: '综合推荐',
+					value: 1,
+					checked: true
+				}, {
+					text: '新品优先',
+					value: 2
+				}, {
+					text: '评论数从高到低',
+					value: 3
+				}],
+				options1: [{
+					text: '默认排序',
+					value: 11,
+					checked: true
+				}, {
+					text: '销量排序',
+					value: 12
+				}, {
+					text: '价格排序',
+					value: 13
+				}],
+				range: '综合推荐',
+				rangeShow: false,
+				sort: '默认排序',
+				sortShow: false,
+				//数据格式二
+				options2: ['注册激活', '站长工具', '投递文章', '媒体合作', '素材相关', '报告错误', '论坛事务', '发布软件', '网站排行榜', '其他事务'],
+				question: '',
+				quesShow: false,
+				options3: ['最新车讯', '降价排行', 'SUV', '违章罚单', '提车试驾', '测评体验', '选车指南', '美女车模', '加油优惠卡', '维修保养'],
+				tag: '',
+				tagShow: false
+			}
+		},
+		methods: {
+			filterTap(type) {
+				if (type === 1) {
+					this.$refs.ddmRange.show()
+					this.rangeShow = true;
+				} else {
+					this.$refs.ddmSort.show()
+					this.sortShow = true;
+				}
+			},
+			rangeItemClick(e) {
+				console.log(e)
+				this.range = e.text
+				this.rangeClose()
+			},
+			rangeClose() {
+				this.rangeShow = false;
+			},
+			sortItemClick(e) {
+				console.log(e)
+				this.sort = e.text
+				this.sortClose()
+			},
+			sortClose() {
+				this.sortShow = false;
+			},
+			quesTap() {
+				this.$refs.ddmQues.show()
+				this.quesShow = true;
+			},
+			quesItemClick(e) {
+				console.log(e)
+				this.question = e.text
+				this.quesClose()
+			},
+			quesClose() {
+				this.quesShow = false;
+			},
+			tagTap() {
+				this.$refs.ddmTag.show()
+				this.tagShow = true;
+			},
+			tagItemClick(e) {
+				console.log(e)
+				this.tag = e.text
+				this.tagClose()
+			},
+			tagClose() {
+				this.tagShow = false;
+			},
+			empty() {}
+		}
+	}
+</script>
+
+<style>
+	/* #ifndef APP-NVUE */
+	page {
+		font-weight: normal;
+	}
+
+	/* #endif */
+	.fui-wrap {
+		padding-bottom: 120rpx;
+	}
+
+	.fui-section__title {
+		margin-left: 32rpx;
+	}
+	.fui-flex__center{
+		/* #ifndef APP-NVUE */
+		display: flex;
+		/* #endif */
+		flex-direction: row;
+		align-items: center;
+	}
+
+	.fui-filter__bar {
+		/* #ifndef APP-NVUE */
+		width: 100%;
+		display: flex;
+		/* #endif */
+		/* #ifndef APP-NVUE */
+		width: 750rpx;
+		/* #endif */
+		height: 88rpx;
+		flex-direction: row;
+		align-items: center;
+		background-color: #fff;
+		margin-bottom: 40rpx;
+	}
+
+	.fui-filter__item {
+		height: 88rpx;
+		/* #ifndef APP-NVUE */
+		display: flex;
+		/* #endif */
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		font-size: 30rpx;
+
+		/* #ifdef H5 */
+		cursor: pointer;
+		/* #endif */
+	}
+
+	.fui-filter__icon {
+		/* #ifndef APP-NVUE */
+		transition: all .15s linear;
+		/* #endif */
+
+		/* #ifdef APP-NVUE */
+		transition-property: transform;
+		transition-duration: .15s;
+		transition-timing-function: linear;
+		/* #endif */
+		transform: rotate(0deg);
+	}
+
+	.fui-icon__ani {
+		transform: rotate(180deg);
+	}
+
+	.fui-list__cell,
+	.fui-flex__1 {
+		flex: 1;
+	}
+
+	.fui-select {
+		height: 80rpx;
+		padding: 32rpx;
+		/* #ifndef APP-NVUE */
+		box-sizing: border-box;
+		display: flex;
+		/* #endif */
+		/* #ifdef APP-NVUE */
+		flex: 1;
+		/* #endif */
+		position: relative;
+		flex-direction: row;
+		align-items: center;
+	}
+
+	/* #ifndef APP-NVUE */
+	.fui-select::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 200%;
+		height: 200%;
+		border: 1px solid #eee;
+		transform: scale(.5);
+		transform-origin: 0 0;
+		pointer-events: none;
+	}
+
+	/* #endif */
+
+	/* #ifdef APP-NVUE */
+	.fui-select {
+		border: 0.5px solid #eee;
+	}
+
+	/* #endif */
+
+	.fui-input {
+		font-size: 32rpx;
+		flex: 1;
+		padding-right: 8rpx;
+		color: #181818;
+	}
+</style>

@@ -106,12 +106,22 @@ export default [{
 	data: [{
 		color: '#FFFFFF',
 		text: '渐变色',
-		value: '#465CFF  #6831FF',
-		gradual: 'linear-gradient(90deg, #465CFF 0%, #6831FF 100%)'
+		// #ifndef APP-NVUE
+		gradual: 'linear-gradient(90deg, #465CFF 0%, #6831FF 100%)',
+		// #endif
+		// #ifdef APP-NVUE
+		gradual: 'linear-gradient(to bottom right,#465CFF,#6831FF)',
+		// #endif
+		value: '#465CFF  #6831FF'
 	}, {
 		color: '#FFFFFF',
 		text: '渐变色',
-		value: '#FD8C8C  #FF2B2B',
-		gradual: 'linear-gradient(90deg, #FD8C8C 0%, #FF2B2B 100%)'
+		// #ifndef APP-NVUE
+		gradual: 'linear-gradient(90deg, #FD8C8C 0%, #FF2B2B 100%)',
+		// #endif
+		// #ifdef APP-NVUE
+		gradual: 'linear-gradient(to bottom right,#FD8C8C,#FF2B2B)',
+		// #endif
+		value: '#FD8C8C  #FF2B2B'
 	}]
 }]
