@@ -1,4 +1,4 @@
-import App from './App'
+import App from './App' 
 import fui from './common/fui-app'
 import fuiConfig from './components/firstui/fui-config'
 import store from './store'
