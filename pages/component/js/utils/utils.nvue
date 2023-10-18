@@ -52,6 +52,28 @@
 				<fui-button type="gray" btn-size="medium" text="格式化" bold :margin="['24rpx']"
 					@click="moneyFormatter"></fui-button>
 			</view>
+
+			<text class="fui-section__title">格式化日期</text>
+			<view class="fui-btn__flex-center">
+				<text class="fui-page__desc">日期原数据：2023-10-30 22:36:15</text>
+				<fui-button type="gray" btn-size="medium" text="年-月-日 时:分" bold :margin="['24rpx']"
+					@click="dateFormatter(1)"></fui-button>
+				<fui-button type="gray" btn-size="medium" text="年/月/日" bold @click="dateFormatter(2)"></fui-button>
+				<fui-button type="gray" btn-size="medium" text="月-日" bold :margin="['24rpx']"
+					@click="dateFormatter(3)"></fui-button>
+				<fui-button type="gray" btn-size="medium" text="时:分" bold @click="dateFormatter(4)"></fui-button>
+				<fui-button type="gray" btn-size="medium" text="分:秒" bold :margin="['24rpx']"
+					@click="dateFormatter(5)"></fui-button>
+				<fui-button type="gray" btn-size="medium" text="*年*月*日 *时*分*秒" bold
+					@click="dateFormatter(6)"></fui-button>
+			</view>
+			<text class="fui-section__title">日期格式化为多久之前</text>
+			<view class="fui-btn__flex-center">
+				<text class="fui-page__desc">之前日期：2023-10-15 22:56:15</text>
+				<fui-button type="gray" btn-size="medium" text="格式化" bold :margin="['24rpx']"
+					@click="dateFormatAgo"></fui-button>
+			</view>
+
 			<text class="fui-section__title">函数节流，连续触发事件</text>
 			<view class="fui-btn__flex-center">
 				<text class="fui-page__desc">3s执行一次，6s执行2次...：{{num}}</text>
@@ -123,6 +145,20 @@
 				const text = '2021';
 				const val = utils.moneyFormatter(text);
 				console.log(val);
+				uni.fui.toast(val)
+			},
+			dateFormatter(type) {
+				const date = '2023-10-30 22:36:15'
+				// y-m-d h:i:s
+				const format = ['y-m-d h:i', 'y/m/d', 'm-d', 'h:i', 'i:s', 'y年m月d日 h时i分s秒'][type - 1]
+				const val = utils.dateFormatter(date, format);
+				console.log(val)
+				uni.fui.toast(val)
+			},
+			dateFormatAgo() {
+				const date = '2023-10-15 22:56:15'
+				const val = utils.formatTimeAgo(date)
+				console.log(val)
 				uni.fui.toast(val)
 			},
 			btnThrottle() {
