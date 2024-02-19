@@ -1,0 +1,145 @@
+<template>
+	<view class="fui-wrap">
+		<view class="fui-page__hd">
+			<text class="fui-page__title">CSS</text>
+			<text class="fui-page__desc">CSS 常用样式，用于页面布局。</text>
+		</view>
+		<view class="fui-page__bd fui-page__spacing">
+			<text class="fui-section__title fui-mtop--0">Common</text>
+			<view class="fui-cell fs-flex__center fs-hover">
+				<text class="fs-size__32">点击效果：fs-hover</text>
+			</view>
+			<view class="fui-cell fs-flex__center fs-text__hover">
+				<text class="fs-size__32">点击效果：fs-text__hover</text>
+			</view>
+			<view class="fui-cell fs-flex__center fs-disabled">
+				<text class="fs-size__32">禁用效果：fs-disabled</text>
+			</view>
+			<view class="fui-cell fs-flex__center fs-cell__thin">
+				<text class="fs-size__32">底部细线：fs-cell__thin</text>
+			</view>
+
+			<view class="fui-section__title">Color</view>
+			<view class="fui-cell fs-flex__center">
+				<text class="fs-size__32 fs-color__primary">字体颜色：fs-color__primary</text>
+			</view>
+			<view class="fui-cell fs-flex__center fs-color__success">
+				<text class="fs-size__32 fs-color__success">fs-color__success</text>
+			</view>
+			<view class="fui-cell fs-flex__center fs-color__warning">
+				<text class="fs-size__32 fs-color__warning">fs-color__warning</text>
+			</view>
+			<view class="fui-cell fs-flex__center fs-color__danger">
+				<text class="fs-size__32 fs-color__danger">fs-color__danger</text>
+			</view>
+			<view class="fui-cell fs-flex__center fs-color__purple">
+				<text class="fs-size__32 fs-color__purple">fs-color__purple</text>
+			</view>
+			<view class="fui-cell fs-flex__center fs-color__title">
+				<text class="fs-size__32 fs-color__title">fs-color__title</text>
+			</view>
+			<view class="fui-cell fs-flex__center fs-color__section">
+				<text class="fs-size__32 fs-color__section">fs-color__section</text>
+			</view>
+			<view class="fui-cell fs-flex__center fs-color__subtitle">
+				<text class="fs-size__32 fs-color__subtitle">fs-color__subtitle</text>
+			</view>
+			<view class="fui-cell fs-flex__center fs-color__label">
+				<text class="fs-size__32 fs-color__label">fs-color__label</text>
+			</view>
+
+			<view class="fui-section__title">FontSize</view>
+			<view class="fui-cell fs-flex__center">
+				<text class="fs-size__h1">字体大小：fs-size__h1</text>
+			</view>
+			<view class="fui-cell fs-flex__center">
+				<text class="fs-size__h2">字体大小：fs-size__h2</text>
+			</view>
+			<view class="fui-cell fs-flex__center">
+				<text class="fs-size__h3">字体大小：fs-size__h3</text>
+			</view>
+			<view class="fui-cell fs-flex__center">
+				<text class="fs-size__h4">字体大小：fs-size__h4</text>
+			</view>
+			<view class="fui-cell fs-flex__center">
+				<text class="fs-size__h5">字体大小 h5/h6</text>
+			</view>
+
+			<view class="fui-cell fs-flex__center">
+				<text class="fs-size__24">字体大小 fs-size__24</text>
+			</view>
+			<view class="fui-cell fs-flex__center">
+				<text class="fs-size__25">字体大小 fs-size__25</text>
+			</view>
+			<view class="fui-cell fs-flex__center">
+				<text class="fs-size__28">字体大小 fs-size__28</text>
+			</view>
+			<view class="fui-cell fs-flex__center">
+				<text class="fs-size__32">字体大小 fs-size__32</text>
+			</view>
+			<view class="fui-cell fs-flex__center">
+				<text class="fs-size__36">字体大小 fs-size__36</text>
+			</view>
+			<view class="fui-cell fs-flex__center">
+				<text class="fs-size__40">字体大小 fs-size__40</text>
+			</view>
+			<view class="fui-cell fs-flex__center">
+				<text class="fs-size__48">字体大小 48rpx</text>
+			</view>
+
+			<text class="fui-section__title">Margin</text>
+
+			<view class="fui-cell fs-flex__center fs-ml8">fs-ml8</view>
+			<view class="fui-cell fs-flex__center fs-mt24">fs-mt24</view>
+			<view class="fui-cell fs-flex__center fs-mt32">fs-mt32</view>
+
+			<text class="fui-section__title">Padding</text>
+			<view class="fs-flex__center fs-bg__white fs-p30 ">
+				<text class="fs-size__32">fs-p30：padding:30rpx</text>
+			</view>
+			<view class="fs-flex__center fs-bg__white fs-mt24 fs-pt24">
+				<text class="fs-size__32">fs-pt24：padding-top:24rpx</text>
+			</view>
+
+			<text class="fui-section__title">其他样式</text>
+			<text class="fui-page__desc">
+				以上仅部分使用示例，完整使用请查看文档。
+			</text>
+		</view>
+	</view>
+</template>
+
+<script>
+	export default {
+		data() {
+			return {
+
+			}
+		},
+		methods: {
+
+		}
+	}
+</script>
+
+<style>
+	/*项目中使用可全局引入scss文件：firstui.scss*/
+	@import '@/components/firstui/fui-css/firstui.css';
+
+	/* #ifndef APP-NVUE */
+	page {
+		font-weight: normal;
+	}
+
+	/* #endif */
+
+	.fui-cell {
+		/* #ifndef APP-NVUE */
+		width: 100%;
+		/* #endif */
+		height: 96rpx;
+		border-radius: 16rpx;
+		background: #fff;
+		margin-bottom: 16rpx;
+	}
+</style>
