@@ -9,7 +9,7 @@
 			<view class="fui-btn__box">
 				<fui-button text="返回首页" :size="28" width="336rpx" height="84rpx" radius="100rpx" background="#fff" borderColor="#465CFF" color="#465CFF" @click="goIndex"></fui-button>
 			</view>
-		</view>
+		</view> 
 	</view>
 </template>
 
